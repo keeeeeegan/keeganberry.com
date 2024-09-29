@@ -1,4 +1,4 @@
-# keeganberry.com ![→](https://keeganberry.com)
+# keeganberry.com
 
 <img width="1313" alt="image" src="https://github.com/user-attachments/assets/f42acdbc-3bf1-4eec-8dce-48b87a13a218">
 
