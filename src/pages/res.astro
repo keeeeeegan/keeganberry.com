@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+// const position = "UI/UX developer and designer";
+// const position = "Web Application Engineer";
+const position = "Web Developer & Designer";
+const title = `Keegan Berry - A ${position} in Orlando, Florida.`;
+const header = `Keegan Berry, ${position}`;
+---
+<script>
+    // Define the behaviour for our new type of HTML element.
+    class FlipIcon extends HTMLElement {
+      constructor() {
+        super();
+  
+        const _this = this;
+        const flipIcon = this;
+        const flipIconClickedClass = 'flip-icon-flipped';
+        let clicked = false;
+
+        flipIcon?.addEventListener('click', (e: MouseEvent) => {
+			e.preventDefault();
+            if (clicked === true) {
+                clicked = false;
+                _this.classList.remove(flipIconClickedClass);
+            }
+            else {
+                clicked = true;
+                _this.classList.add(flipIconClickedClass);
+            }
+        });
+
+      }
+    }
+  
+    // Tell the browser to use our AstroHeart class for <astro-heart> elements.
+    customElements.define('flip-icon', FlipIcon);
+</script>
+<Layout title={title}>
+	<main>
+		
+		<!-- <h1 class="mplus-400">{header}</h1> -->
+
+        <!-- <img src="/flowers.jpg" style="max-width: 100%" /> -->
+
+        <!-- <h1>Resume</h1> -->
+
+        <!-- <div class="two-image-overlay" /> -->
+
+        <h1>Resume</h1>
+        
+        <h2>Employment</h2>
+
+        <h3>Discover Financial Services</h3>
+        <span class="job-time-subtitle">Web Application Engineer, Nov 2022 – Current</span>
+
+        <h3>University of Central Florida - Center for Distributed Learning</h3>
+        <span class="job-time-subtitle">Web Developer, Oct 2017 – 2022</span>
+
+        <h3>University of Central Florida - UCF Marketing</h3>
+        <span class="job-time-subtitle">Web Designer, Web Developer, Aug 2015 – Oct 2017</span>
+
+        <h3>Cloudspace</h3>
+        <span class="job-time-subtitle">Graphic Designer, Front-end Web Developer, &amp; Software Engineer, Apr 2012 – Aug 2015</span>
+
+        <h2>Education</h2>
+
+        <h3>University of Central Florida</h3>
+        <span class="job-time-subtitle">B.A. 2012</span>
+	</main>
+</Layout>
+<style>
+h1 {
+    padding-top: 100px;
+    padding-bottom: 0px;
+    font-size: 30px;
+    text-align: left;
+    font-weight: 400;
+    color: #1c9957;
+    text-transform: lowercase;
+}
+
+h2 {
+    margin-top: 60px;
+}
+
+h2, h3 {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.job-time-subtitle:after {
+    content: " ";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: #1c9957;
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
+.two-image-overlay {
+    background-image: url("flowers.jpg"), url("car.jpg");
+    background-color: purple;
+    background-blend-mode: lighten;
+    background-size: cover;
+    width: 100%;
+    height: 230px;
+    display: block;
+    margin-top: 40px;
+    margin-left: 0;
+ }
+
+ @media (max-width: 700px) {
+   
+    .two-image-overlay {
+    margin-left: -15px;
+    width: calc(100% + 30px);
+ }
+   
+   
+   
+   
+}
+
+</style>

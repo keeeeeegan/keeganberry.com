@@ -1,0 +1,88 @@
+menu-overlay {
+    background: #1C9957;
+    margin: auto;
+    /* padding: 1rem; */
+    width: 600px;
+    max-width: calc(100% - 2rem);
+    color: #333;
+    font-size: 16px;
+    line-height: 1;
+    min-height: 20px;
+    display: block;
+    transition: all 0.3s;
+    padding-bottom: 60px;
+    padding-top: 20px;
+    line-height: 0;
+    margin-top: -4em;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+@media (max-width: 700px) {
+    menu-overlay  {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+menu-overlay .menu-list {
+    list-style-type: none;
+    transition: all 0.3s;
+}
+menu-overlay:hover {
+    line-height: 1.6;
+    margin-top: 0;
+}
+
+/* menu-overlay:hover ul {
+    line-height: 1.25;
+    margin-top: 0;
+} */
+
+
+.menu-button {
+ width: 20px;
+  height: 20px;
+  padding: 0;
+  overflow: hidden;
+  background-position: center center;
+  background-image: url('/hamburger.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-indent: -99999px;
+  vertical-align: middle;
+  margin-top: -2px;
+  position: absolute;
+  right: 14px;
+  bottom: 16px;
+  line-height: 1;
+}
+
+.menu-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+
+    font-family: "M PLUS 1 Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+.menu-list a:hover {
+    /* color: #cdffbd; */
+    background-color: #000;
+}
+
+/* .menu-list .page-link {
+    background-color: transparent;
+    border: 0;
+} */
+
+/* .menu-list .page-link:hover {
+    background-color: transparent;
+} */

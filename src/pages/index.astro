@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+// const position = "UI/UX developer and designer";
+// const position = "Web Application Engineer";
+const position = "Web Developer & Designer";
+const title = `Keegan Berry - A ${position} in Orlando, Florida.`;
+const header = `Keegan Berry, ${position}`;
+---
+<script>
+    // Define the behaviour for our new type of HTML element.
+    class FlipIcon extends HTMLElement {
+      constructor() {
+        super();
+  
+        const _this = this;
+        const flipIcon = this;
+        const flipIconClickedClass = 'flip-icon-flipped';
+        let clicked = false;
+
+        flipIcon?.addEventListener('click', (e: MouseEvent) => {
+			e.preventDefault();
+            if (clicked === true) {
+                clicked = false;
+                _this.classList.remove(flipIconClickedClass);
+            }
+            else {
+                clicked = true;
+                _this.classList.add(flipIconClickedClass);
+            }
+        });
+
+      }
+    }
+  
+    // Tell the browser to use our AstroHeart class for <astro-heart> elements.
+    customElements.define('flip-icon', FlipIcon);
+</script>
+<Layout title={title}>
+	<main>
+		<flip-icon>
+			<div class="flip-icon__content-container">
+				<img class="flip-icon__icon-front" src="icon.png" alt="" />
+				<img class="flip-icon__icon-back" src="keegan-berry-photo.png" alt="" />
+			</div>
+		</flip-icon>
+		
+		<h1 class="mplus-400">{header}</h1>
+
+		<p>Hello!
+			I am a designer and front-end web developer with over ten years of professional
+			experience in all stages of website and web application design and
+			production. I have a strong foundation in front-end development, graphic
+			design and experience in back-end development including the maintenance
+			of legacy websites and systems.</p>
+
+		<div class="about-icons-container"><img class="about-icons-container__img" src="/app-icons.png" alt="Icons for Adobe Illustrator, Figma, Adobe Photoshop, ReactJS, and VS Code"></div>
+
+		<p>I am a graduate of University of Central Florida with a proficiency in
+			front-end web design and development. I have experience in all stages
+			web production, including front-end and back-end work, with strengths in
+			Javascript, HTML/CSS, PHP, and Python. In addition, I am a graphic
+			designer and front-end UI/UX web designer, with extensive experience in
+			Adobe Photoshop, Adobe Illustrator, and UI tools such as Figma and
+			Sketch.</p>
+	</main>
+</Layout>
+<style is:global>
+	:root {
+		background: #fff;
+	}
+	
+	flip-icon {
+		width: 185px;
+		height: 185px;
+		perspective: 800px;
+		margin: 120px auto 75px auto;
+		display: block;
+	}
+
+	@media (max-width: 700px) {
+		flip-icon {
+			margin: 100px auto 50px auto;
+		}    
+	}
+
+	flip-icon:hover > .flip-icon__content-container {
+		cursor: default;
+		transform: rotateY(180deg);
+	}
+
+	@media (max-width: 700px) {
+
+		flip-icon:hover > .flip-icon__content-container {
+			cursor: default;
+			transform: none;
+		}
+
+		flip-icon.flip-icon-flipped > .flip-icon__content-container {
+			cursor: default;
+			transform: rotateY(180deg);
+		}
+	}
+
+	.flip-icon__content-container {
+		width: 185px;
+		height: 185px;
+		border-radius: 100%;
+		position: relative;
+		transition: transform 500ms;
+		transform-style: preserve-3d;
+		border: solid #1C9957 2px;
+	}
+
+	.flip-icon__icon-front,
+	.flip-icon__icon-back {
+		width: 185px;
+		height: 185px;
+		border-radius: 100%;
+		/* box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25); */
+		position: absolute;
+		backface-visibility: hidden;
+	}
+
+	.flip-icon__icon-front {
+		width: 74%;
+		height: 74%;
+		border-radius: 26%;
+		padding: 13%; 
+	}
+
+	.flip-icon__icon-front > img {
+		max-width: 100%;
+	}
+
+	.flip-icon__icon-back {
+		transform: rotateY(180deg);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 5rem;
+	}
+
+	.flip-icon__icon-front > img {
+		max-width: 100%;
+	}
+
+</style>
